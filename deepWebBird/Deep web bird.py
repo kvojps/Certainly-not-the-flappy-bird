@@ -1,6 +1,5 @@
 import pyxel
 
-#direcoes da cobra
 CIMA = 0
 DIREITA = 1
 BAIXO = 2
