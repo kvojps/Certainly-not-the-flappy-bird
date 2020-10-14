@@ -46,13 +46,13 @@ class Game:
       pyxel.cls(12)
       pyxel.rect(self.x, self.y, 8, 8, 10)
 
-      # draw sky
+      # céu
       pyxel.blt(0, 88, 0, 0, 88, 160, 32)
 
-      # draw mountain
+      # montanha
       pyxel.blt(0, 88, 0, 0, 64, 160, 24, 12)
 
-      # draw clouds
+      # nuvens
       offset = (pyxel.frame_count // 16) % 160
       for i in range(2):
           for x, y in self.far_cloud:
