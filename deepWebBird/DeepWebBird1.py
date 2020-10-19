@@ -7,11 +7,12 @@ BAIXO = 2
 
 SCENE_TITLE = 0
 SCENE_PLAY = 1
-SCENE_GAMEOVER = 2
+
 
 STAR_COUNT = 100
 STAR_COLOR_HIGH = 12
 STAR_COLOR_LOW = 5
+
 
 class Background:
     def __init__(self):
@@ -33,11 +34,9 @@ class Background:
             pyxel.pset(x, y, STAR_COLOR_HIGH if speed > 1.8 else STAR_COLOR_LOW)
 
 
-
-
 class Game:
     def __init__(self):
-        pyxel.init(160, 120, caption="Flappy bird")
+        pyxel.init(160, 120, caption="Deep web bird")
         pyxel.load("assets/jump_game.pyxres")
 
         self.x = pyxel.width / 4
@@ -48,6 +47,7 @@ class Game:
 
         self.direcao = DIREITA
         self.tamanho_sprite = 8
+        
         self.far_cloud = [(-10, 75), (40, 65), (90, 60)]
         self.near_cloud = [(10, 25), (70, 35), (120, 15)]
 
@@ -56,9 +56,10 @@ class Game:
     def processar_entrada(self):
         if pyxel.btn(pyxel.KEY_UP):
             self.direcao = CIMA
-
+            
         elif pyxel.btn(pyxel.KEY_DOWN):
             self.direcao = BAIXO
+            
         if pyxel.frame_count % 15 == 0:
             if self.direcao == CIMA:
                 if self.y - self.tamanho_sprite < 0:
@@ -91,7 +92,6 @@ class Game:
 
     def draw(self):
         pyxel.cls(0)
-
         self.background.draw()
 
         if self.scene == SCENE_TITLE:
@@ -99,11 +99,8 @@ class Game:
         elif self.scene == SCENE_PLAY:
             self.draw_play_scene()
 
-
     def draw_title_scene(self):
         pyxel.text(55, 50, "Deep web bird \n \n PRESS ENTER", pyxel.frame_count % 16)
-        
-        
 
     def draw_play_scene(self):
         pyxel.cls(12)
