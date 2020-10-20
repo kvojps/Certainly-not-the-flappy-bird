@@ -103,7 +103,7 @@ class Game:
         pyxel.text(55, 50, "Deep web bird \n \n PRESS ENTER", pyxel.frame_count % 16)
 
     def draw_play_scene(self):
-        pyxel.cls(12)
+        pyxel.cls(5)
         pyxel.blt(self.x, self.y,0,0,0,16,16,12)
 
         # nuvens
