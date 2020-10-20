@@ -104,7 +104,7 @@ class Game:
 
     def draw_play_scene(self):
         pyxel.cls(12)
-        pyxel.rect(self.x, self.y, 8, 8, 10)
+        pyxel.blt(self.x, self.y,0,0,0,16,16,12)
 
         # nuvens
         offset = (pyxel.frame_count // 16) % 160
