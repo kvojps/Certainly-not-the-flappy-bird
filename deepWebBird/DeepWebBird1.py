@@ -37,7 +37,7 @@ class Background:
 class Game:
     def __init__(self):
         pyxel.init(160, 120, caption="Deep web bird")
-        pyxel.load("assets/jump_game.pyxres")
+        pyxel.load("assets/game.pyxres")
 
         self.x = pyxel.width / 4
         self.y = pyxel.height / 2
