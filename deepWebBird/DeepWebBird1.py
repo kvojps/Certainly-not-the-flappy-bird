@@ -53,6 +53,8 @@ class Game:
 
         pyxel.run(self.update, self.draw)
 
+#MECANICA DO JOGO
+
     def processar_entrada(self):
         if pyxel.btn(pyxel.KEY_UP):
             self.direcao = CIMA
@@ -72,6 +74,8 @@ class Game:
                 else:
                     self.y += 8
 
+#ATUALIZANDO JOGO
+
     def update(self):
         if pyxel.btnp(pyxel.KEY_Q):
             pyxel.quit()
@@ -90,6 +94,8 @@ class Game:
     def update_play_scene(self):
         self.processar_entrada()
 
+#DESENHANDO JOGO
+
     def draw(self):
         pyxel.cls(0)
         self.background.draw()
@@ -106,6 +112,9 @@ class Game:
         pyxel.cls(5)
         pyxel.blt(self.x, self.y,0,0,0,16,16,12)
 
+        #Chao
+        pyxel.blt(0, 114, 0, 0, 114, 160, 32)
+
         # nuvens
         offset = (pyxel.frame_count // 16) % 160
         for i in range(2):
@@ -116,6 +125,7 @@ class Game:
         for i in range(2):
             for x, y in self.near_cloud:
                 pyxel.blt(x + i * 160 - offset, y, 0, 0, 32, 56, 8, 12)
+
 
 
 Game()
