@@ -113,7 +113,7 @@ class Game:
         pyxel.blt(self.x, self.y,0,0,0,16,16,12)
 
         #Chao
-        pyxel.blt(0, 114, 0, 0, 114, 160, 32)
+        pyxel.blt(0, 112, 0, 0, 112, 160, 32)
 
         # nuvens
         offset = (pyxel.frame_count // 16) % 160
