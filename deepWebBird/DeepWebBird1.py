@@ -1,10 +1,6 @@
 import pyxel
 from random import random
 
-CIMA = 0
-DIREITA = 1
-BAIXO = 2
-
 SCENE_TITLE = 0
 SCENE_PLAY = 1
 
@@ -39,15 +35,13 @@ class Game:
         pyxel.init(160, 120, caption="Deep web bird")
         pyxel.load("assets/game.pyxres")
 
-        self.x = pyxel.width / 4
-        self.y = pyxel.height / 2
+        self.x = 40
+        self.y = 60
+        self.vy = 0
 
         self.scene = SCENE_TITLE
         self.background = Background()
 
-        self.direcao = DIREITA
-        self.tamanho_sprite = 8
-        
         self.far_cloud = [(-10, 75), (40, 65), (90, 60)]
         self.near_cloud = [(10, 25), (70, 35), (120, 15)]
 
@@ -57,22 +51,9 @@ class Game:
 
     def processar_entrada(self):
         if pyxel.btn(pyxel.KEY_UP):
-            self.direcao = CIMA
-            
-        elif pyxel.btn(pyxel.KEY_DOWN):
-            self.direcao = BAIXO
-            
-        if pyxel.frame_count % 15 == 0:
-            if self.direcao == CIMA:
-                if self.y - self.tamanho_sprite < 0:
-                    self.y = pyxel.height - self.tamanho_sprite
-                else:
-                    self.y -= 8
-            elif self.direcao == BAIXO:
-                if self.y + self.tamanho_sprite > pyxel.height - self.tamanho_sprite:
-                    self.y = 0
-                else:
-                    self.y += 8
+            self.y -= 6
+        self.y += self.vy
+        self.vy = min(self.vy + 1, 2)
 
 #ATUALIZANDO JOGO
 
