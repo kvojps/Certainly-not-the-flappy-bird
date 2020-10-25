@@ -35,8 +35,8 @@ class Game:
         pyxel.init(160, 120, caption="Deep web bird")
         pyxel.load("assets/game.pyxres")
 
-        self.x = pyxel.width / 4
-        self.y = pyxel.height / 2
+        self.x = 8
+        self.y = 80
         self.vy = 0
 
         self.scene = SCENE_TITLE
@@ -73,6 +73,8 @@ class Game:
             self.scene = SCENE_PLAY
 
     def update_play_scene(self):
+        self.y = max(self.y, 2)
+        self.y = min(self.y, 95)
         self.processar_entrada()
 
 #DESENHANDO JOGO
