@@ -93,7 +93,7 @@ class Game:
 
     def draw_play_scene(self):
         pyxel.cls(1)
-        pyxel.blt(self.x, self.y,0,0,0,20,15,12)
+        pyxel.blt(self.x, self.y,0,0,0,21,15,12)
 
         #Chao
         pyxel.blt(0, 112, 0, 0, 112, 160, 32)
