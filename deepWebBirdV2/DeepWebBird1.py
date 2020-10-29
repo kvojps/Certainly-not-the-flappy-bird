@@ -10,7 +10,7 @@ STAR_COLOR_HIGH = 12
 STAR_COLOR_LOW = 5
 
 largura_tela = 160
-distancia_canos = 80
+distancia_canos = 70
 cano1 = largura_tela + distancia_canos * 0, -10 * randint(1, 10)
 cano2 = largura_tela + distancia_canos * 1, -10 * randint(1, 10)
 cano3 = largura_tela + distancia_canos * 2, -10 * randint(1, 10)
@@ -99,9 +99,9 @@ class Game:
         
     def desenhar_canos(self):
         cor = 11
-        largura = 25
-        altura = 135
-        abertura_cano = 200
+        largura = 20
+        altura = 85
+        abertura_cano = 125
         for x, y in self.canos:
             pyxel.rect(x, y, largura, altura, cor)
             pyxel.rect(x, y + abertura_cano, largura, altura, cor)
