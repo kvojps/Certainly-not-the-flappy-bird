@@ -1,5 +1,5 @@
 import pyxel
-from random import random
+from random import random,randint,randrange
 
 SCENE_TITLE = 0
 SCENE_PLAY = 1
@@ -9,7 +9,14 @@ STAR_COUNT = 100
 STAR_COLOR_HIGH = 12
 STAR_COLOR_LOW = 5
 
+largura_tela = 160
+distancia_canos = 80
+cano1 = largura_tela + distancia_canos * 0, -10 * randint(1, 10)
+cano2 = largura_tela + distancia_canos * 1, -10 * randint(1, 10)
+cano3 = largura_tela + distancia_canos * 2, -10 * randint(1, 10)
+cano4 = largura_tela + distancia_canos * 3, -10 * randint(1, 10)
 
+#Tela inicial
 class Background:
     def __init__(self):
         self.star_list = []
@@ -45,6 +52,8 @@ class Game:
         self.far_cloud = [(-10, 75), (40, 65), (90, 60)]
         self.near_cloud = [(10, 25), (70, 35), (120, 15)]
 
+        self.canos = [cano1, cano2, cano3, cano4]
+
         pyxel.run(self.update, self.draw)
 
 #MECANICA DO JOGO
@@ -55,12 +64,20 @@ class Game:
         self.y += self.vy
         self.vy = min(self.vy + 1, 2)
 
+    def atualizar_canos(self):
+        i = 0
+        for x, y in self.canos:
+            if x < -30:
+                x = x + 4 * distancia_canos * 4
+                y = -10 * randint(1, 10)
+            self.canos[i] = x - 1, y
+            i = i + 1
+
 #ATUALIZANDO JOGO
 
     def update(self):
         if pyxel.btnp(pyxel.KEY_Q):
             pyxel.quit()
-
         self.background.update()
 
         if self.scene == SCENE_TITLE:
@@ -76,8 +93,18 @@ class Game:
         self.y = max(self.y, 2)
         self.y = min(self.y, 95)
         self.processar_entrada()
+        self.atualizar_canos()
 
 #DESENHANDO JOGO
+        
+    def desenhar_canos(self):
+        cor = 11
+        largura = 25
+        altura = 135
+        abertura_cano = 200
+        for x, y in self.canos:
+            pyxel.rect(x, y, largura, altura, cor)
+            pyxel.rect(x, y + abertura_cano, largura, altura, cor)
 
     def draw(self):
         pyxel.cls(0)
@@ -94,6 +121,7 @@ class Game:
     def draw_play_scene(self):
         pyxel.cls(1)
         pyxel.blt(self.x, self.y,0,0,0,21,15,12)
+        self.desenhar_canos()
 
         #Chao
         pyxel.blt(0, 112, 0, 0, 112, 160, 32)
