@@ -43,7 +43,7 @@ class Game:
         pyxel.load("assets/game.pyxres")
 
         self.player_x = 8
-        self.player_y = 80
+        self.player_y = 30
         self.player_vy = 0
 
         self.scene = SCENE_TITLE
