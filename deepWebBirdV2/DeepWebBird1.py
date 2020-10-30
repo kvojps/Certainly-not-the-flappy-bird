@@ -68,7 +68,7 @@ class Game:
         i = 0
         for x, y in self.canos:
             if x < -30:
-                x = x + 4 * distancia_canos * 4
+                x = x + 1 * distancia_canos * 4
                 y = -10 * randint(1, 10)
             self.canos[i] = x - 1, y
             i = i + 1
