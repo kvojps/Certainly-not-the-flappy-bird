@@ -42,9 +42,9 @@ class Game:
         pyxel.init(160, 120, caption="Deep web bird")
         pyxel.load("assets/game.pyxres")
 
-        self.x = 8
-        self.y = 80
-        self.vy = 0
+        self.player_x = 8
+        self.player_y = 80
+        self.player_vy = 0
 
         self.scene = SCENE_TITLE
         self.background = Background()
@@ -60,9 +60,9 @@ class Game:
 
     def processar_entrada(self):
         if pyxel.btn(pyxel.KEY_UP):
-            self.y -= 6
-        self.y += self.vy
-        self.vy = min(self.vy + 1, 2)
+            self.player_y -= 6
+        self.player_y += self.player_vy
+        self.player_vy = min(self.player_vy + 1, 2)
 
     def atualizar_canos(self):
         i = 0
@@ -90,8 +90,8 @@ class Game:
             self.scene = SCENE_PLAY
 
     def update_play_scene(self):
-        self.y = max(self.y, 2)
-        self.y = min(self.y, 95)
+        self.player_y = max(self.player_y, 2)
+        self.player_y = min(self.player_y, 95)
         self.processar_entrada()
         self.atualizar_canos()
 
@@ -120,7 +120,7 @@ class Game:
 
     def draw_play_scene(self):
         pyxel.cls(1)
-        pyxel.blt(self.x, self.y,0,0,0,21,15,12)
+        pyxel.blt(self.player_x, self.player_y,0,0,0,21,15,12)
         self.desenhar_canos()
 
         #Chao
