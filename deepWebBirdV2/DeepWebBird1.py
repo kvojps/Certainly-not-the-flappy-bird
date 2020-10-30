@@ -124,7 +124,7 @@ class Game:
         self.desenhar_canos()
 
         #Chao
-        pyxel.blt(0, 112, 0, 0, 112, 160, 32)
+        pyxel.blt(0, 113, 0, 0, 113, 160, 32)
 
         # nuvens
         offset = (pyxel.frame_count // 16) % 160
