@@ -3,6 +3,7 @@ from random import random,randint,randrange
 
 SCENE_TITLE = 0
 SCENE_PLAY = 1
+SCENE_GAMEOVER = 2
 
 
 STAR_COUNT = 100
@@ -79,21 +80,31 @@ class Game:
         if pyxel.btnp(pyxel.KEY_Q):
             pyxel.quit()
         self.background.update()
-
         if self.scene == SCENE_TITLE:
             self.update_title_scene()
         elif self.scene == SCENE_PLAY:
             self.update_play_scene()
+        elif self.scene == SCENE_GAMEOVER:
+            self.update_gameover_scene()
 
     def update_title_scene(self):
         if pyxel.btnp(pyxel.KEY_ENTER):
             self.scene = SCENE_PLAY
 
     def update_play_scene(self):
+        if self.player_y > 95:
+            self.scene = SCENE_GAMEOVER
         self.player_y = max(self.player_y, 2)
         self.player_y = min(self.player_y, 95)
         self.processar_entrada()
         self.atualizar_canos()
+
+    def update_gameover_scene(self):
+        if pyxel.btnp(pyxel.KEY_ENTER):
+            self.scene = SCENE_PLAY
+            self.player_x = 8
+            self.player_y = 30
+            
 
 #DESENHANDO JOGO
         
@@ -114,6 +125,8 @@ class Game:
             self.draw_title_scene()
         elif self.scene == SCENE_PLAY:
             self.draw_play_scene()
+        elif self.scene == SCENE_GAMEOVER:
+            self.draw_gameover_scene()
 
     def draw_title_scene(self):
         pyxel.text(55, 50, "Deep web bird \n \n PRESS ENTER", pyxel.frame_count % 16)
@@ -136,6 +149,11 @@ class Game:
         for i in range(2):
             for x, y in self.near_cloud:
                 pyxel.blt(x + i * 160 - offset, y, 0, 0, 32, 56, 8, 12)
+
+    def draw_gameover_scene(self):
+        pyxel.cls(0)
+        pyxel.text(52, 50, "  GAME OVER \n \n PRESS ENTER", pyxel.frame_count % 16)
+        
 
 
 
