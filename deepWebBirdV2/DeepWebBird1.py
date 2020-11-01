@@ -73,6 +73,18 @@ class Game:
                 y = -10 * randint(1, 10)
             self.canos[i] = x - 1, y
             i = i + 1
+    
+    def atualizar_colisoes(self):
+        abertura_cano = 125
+        if self.player_y > 95:
+            self.scene = SCENE_GAMEOVER
+        for x, y in self.canos:
+            colide_x = self.player_x + 20  > x and  self.player_x  <  x + 20
+            colide_y = self.player_y < y + 85  or self.player_y + 15 > y + abertura_cano
+            
+            if colide_x and colide_y:
+                self.scene = SCENE_GAMEOVER
+
 
 #ATUALIZANDO JOGO
 
@@ -92,8 +104,7 @@ class Game:
             self.scene = SCENE_PLAY
 
     def update_play_scene(self):
-        if self.player_y > 95:
-            self.scene = SCENE_GAMEOVER
+        self.atualizar_colisoes()
         self.player_y = max(self.player_y, 2)
         self.player_y = min(self.player_y, 95)
         self.processar_entrada()
@@ -104,6 +115,7 @@ class Game:
             self.scene = SCENE_PLAY
             self.player_x = 8
             self.player_y = 30
+            self.canos = [cano1,cano2,cano3,cano4]
             
 
 #DESENHANDO JOGO
