@@ -1,1 +1,3 @@
-* Desenvolvimento em andamendo de um jogo utilizando python e pyxel!
+# Deep Web Bird
+
+Desenvolvimento finalizado do jogo Flappy bird, utilizando a linguagem python e o framework pyxel.
