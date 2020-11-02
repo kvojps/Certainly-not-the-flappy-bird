@@ -54,6 +54,8 @@ class Game:
         self.near_cloud = [(10, 25), (70, 35), (120, 15)]
 
         self.canos = [cano1, cano2, cano3, cano4]
+        
+        self.score = 0
 
         pyxel.run(self.update, self.draw)
 
@@ -84,6 +86,11 @@ class Game:
             
             if colide_x and colide_y:
                 self.scene = SCENE_GAMEOVER
+    
+    def atualizar_score(self):
+        for x,y in self.canos:
+            if self.player_x == x :
+                self.score += 1
 
 
 #ATUALIZANDO JOGO
@@ -109,6 +116,7 @@ class Game:
         self.player_y = min(self.player_y, 95)
         self.processar_entrada()
         self.atualizar_canos()
+        self.atualizar_score()
 
     def update_gameover_scene(self):
         if pyxel.btnp(pyxel.KEY_ENTER):
@@ -116,6 +124,7 @@ class Game:
             self.player_x = 8
             self.player_y = 30
             self.canos = [cano1,cano2,cano3,cano4]
+            self.score = 0
             
 
 #DESENHANDO JOGO
@@ -164,6 +173,7 @@ class Game:
 
     def draw_gameover_scene(self):
         pyxel.cls(0)
+        pyxel.text(50, 30, f"  SCORE =  {self.score}", 7)
         pyxel.text(52, 50, "  GAME OVER \n \n PRESS ENTER", pyxel.frame_count % 16)
         
 
