@@ -131,7 +131,7 @@ class Game:
         
     def desenhar_canos(self):
         cor = 11
-        largura = 20
+        largura = 15
         altura = 85
         abertura_cano = 125
         for x, y in self.canos:
