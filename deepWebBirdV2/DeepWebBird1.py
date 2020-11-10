@@ -63,7 +63,7 @@ class Game:
 
     def processar_entrada(self):
         if pyxel.btn(pyxel.KEY_UP):
-            self.player_y -= 6
+            self.player_y -= 5
         self.player_y += self.player_vy
         self.player_vy = min(self.player_vy + 1, 2)
 
