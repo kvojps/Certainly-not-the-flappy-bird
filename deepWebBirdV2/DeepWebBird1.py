@@ -154,12 +154,7 @@ class Game:
 
     def draw_play_scene(self):
         pyxel.cls(1)
-        pyxel.blt(self.player_x, self.player_y,0,0,0,21,15,12)
-        self.desenhar_canos()
-
-        #Chao
-        pyxel.blt(0, 113, 0, 0, 113, 160, 32)
-
+        
         # nuvens
         offset = (pyxel.frame_count // 16) % 160
         for i in range(2):
@@ -170,6 +165,12 @@ class Game:
         for i in range(2):
             for x, y in self.near_cloud:
                 pyxel.blt(x + i * 160 - offset, y, 0, 0, 32, 56, 8, 12)
+
+        self.desenhar_canos()
+        pyxel.blt(self.player_x, self.player_y,0,0,0,21,15,12)
+
+        #Chao
+        pyxel.blt(0, 113, 0, 0, 113, 160, 32)
 
     def draw_gameover_scene(self):
         pyxel.cls(0)
