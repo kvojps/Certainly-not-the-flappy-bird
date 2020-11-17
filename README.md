@@ -1,5 +1,7 @@
 # Deep Web Bird
 
+![Tela inicial](https://github.com/kvojps/Certainly-not-the-flappy-bird/blob/main/deepWebBirdV2/Telas%20de%20jogo/Tela_inicial.jpeg)
+![alt text](https://github.com/kvojps/Certainly-not-the-flappy-bird/blob/main/deepWebBirdV2/Telas%20de%20jogo/Tela_inicial.jpeg)
 ![alt text](https://github.com/kvojps/Certainly-not-the-flappy-bird/blob/main/deepWebBirdV2/Telas%20de%20jogo/Tela_inicial.jpeg)
 
 * Desenvolvimento finalizado do jogo Flappy bird, utilizando a linguagem python e o framework pyxel. O jogo é baseado em 3 telas, tela de título, tela de jogo e tela de fim de jogo, utilizou-se o pyxeleditor para desenhar as artes. 
