@@ -8,5 +8,5 @@
 
 * No jogo, as partes de mecânica são as funções de processamento de entrada e atualização dos canos,colisões e score. Já as partes referentes ao desenho dos elementos está explicado nos respectivos métodos Draw.
 
-Em caso de dúvidas:[ACESSE MEU INSTAGRAM](https://www.instagram.com/divers_tech/).
+Em caso de dúvidas: [ACESSE MEU INSTAGRAM](https://www.instagram.com/divers_tech/).
 
