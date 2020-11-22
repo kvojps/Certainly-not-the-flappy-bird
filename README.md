@@ -1,5 +1,7 @@
 # Deep Web Bird
 
+* Para controlar o personagem no jogo utilize a seta para cima !
+
 ![Tela inicial](https://github.com/kvojps/Certainly-not-the-flappy-bird/blob/main/deepWebBirdV2/Telas%20de%20jogo/Tela_inicial.jpeg)
 
 ![Tela de jogo](https://github.com/kvojps/Certainly-not-the-flappy-bird/blob/main/deepWebBirdV2/Telas%20de%20jogo/Tela_jogo.jpeg)
